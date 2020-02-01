@@ -9,6 +9,8 @@ TagManager:
   - Dish
   - TrashTrigger
   - DishTrigger
+  - Kitchen
+  - Trash Bin
   layers:
   - Default
   - TransparentFX

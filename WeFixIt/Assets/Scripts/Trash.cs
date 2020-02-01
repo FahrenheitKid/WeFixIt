@@ -26,6 +26,19 @@ public class Trash : Item
     }
 
 
+    public override void Drop()
+    {
+        base.Drop();
+        if (isInsideDropOffArea)
+        {
+            game_ref.Score(scoreValue);
+            Destroy(this.gameObject);
+        }
+
+       
+
+    }
+
 
 
     private IEnumerator resetTrashFalls()
