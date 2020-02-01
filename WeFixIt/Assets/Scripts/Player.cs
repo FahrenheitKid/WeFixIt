@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public float acceleration;
     public float breakSpeed;
     private Vector3 speed;
+    private CharacterController body;
+    private RaycastHit hit;
 
     [Header("Rotation")]
     public float maxRotationSpeed;
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour
         id = 0;
         InputManager.Initialize();
         speed = Vector3.zero;
+        body = GetComponent<CharacterController>();
     }
 
     private void Update()
@@ -172,7 +175,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        transform.Translate(transform.InverseTransformDirection(speed) * Time.deltaTime);
+        body.SimpleMove(speed);
 
         if (direction != Vector3.zero)
         {
