@@ -174,8 +174,11 @@ public class Player : MonoBehaviour
 
         transform.Translate(transform.InverseTransformDirection(speed) * Time.deltaTime);
 
-        Vector3 newFacingDirection = Vector3.RotateTowards(transform.forward, direction, Mathf.Deg2Rad * maxRotationSpeed, Mathf.Infinity);
-        transform.forward = newFacingDirection;
+        if (direction != Vector3.zero)
+        {
+            Vector3 newFacingDirection = Vector3.RotateTowards(transform.forward, direction, Mathf.Deg2Rad * maxRotationSpeed, Mathf.Infinity);
+            transform.forward = newFacingDirection;
+        }
     }
 
     public int getId()
