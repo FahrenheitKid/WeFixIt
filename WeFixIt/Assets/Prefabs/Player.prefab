@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 6024118073890126562}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,9 +179,9 @@ MonoBehaviour:
   maxSpeed: 1.5
   acceleration: 4
   breakSpeed: 6
-  stumbleSpeed: 0
-  stumbleBreakSpeed: 0
-  stumbleTime: 0
+  stumbleSpeed: 2
+  stumbleBreakSpeed: 8
+  stumbleTime: 1.5
   maxRotationSpeed: 3
   itemPosition: {fileID: 0}
 --- !u!1 &3377486442238781847

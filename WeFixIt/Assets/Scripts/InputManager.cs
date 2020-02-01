@@ -85,4 +85,9 @@ public static class InputManager
     {
         playerKeys[player][(int)action] = keyCode;
     }
+
+    public static KeyCode CheckKey(int player, KeyActions action)
+    {
+        return playerKeys[player][(int)action];
+    }
 }

@@ -8,8 +8,8 @@ public class Item : MonoBehaviour
 
    public struct Task
     {
-        float time;
-        float timeCurrent;
+        public float time;
+        public float timeCurrent;
         bool isComplete;
 
         public Task(float time)
@@ -257,6 +257,7 @@ public class Item : MonoBehaviour
 
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag(areaTag))
@@ -273,5 +274,26 @@ public class Item : MonoBehaviour
         }
     }
 
+
+
+    public List<Player> GetPlayerList()
+    {
+        return players;
+    }
+
+    public List<Player> GetCurrentPlayer()
+    {
+        return currentPlayers;
+    }
+
+    public Task GetPickUp()
+    {
+        return pickUp;
+    }
+
+    public bool GetBeingCarried()
+    {
+        return isBeingCarried;
+    }
 
 }
