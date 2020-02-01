@@ -7,7 +7,7 @@ public class Trash : Item
     // Start is called before the first frame update
     void Start()
     {
-        
+        init();
     }
 
     // Update is called once per frame
@@ -37,6 +37,13 @@ public class Trash : Item
 
        
 
+    }
+
+    public override void PickUp(Player p)
+    {
+        base.PickUp(p);
+
+        p.setTrashFall(false);
     }
 
 
