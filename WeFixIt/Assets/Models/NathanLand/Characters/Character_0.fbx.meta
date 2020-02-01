@@ -18,9 +18,6 @@ ModelImporter:
   - first:
       74: -5913978943142729594
     second: Armature|Move
-  - first:
-      74: 5449073193131188545
-    second: Armature|CubeAction
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -52,7 +49,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.04
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -98,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.04
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
