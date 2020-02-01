@@ -69,6 +69,9 @@ public class Item : MonoBehaviour
     }
 
     [SerializeField]
+    protected Game game_ref;
+
+    [SerializeField]
     protected BoxCollider interactionCollider;
 
     [SerializeField]
@@ -82,6 +85,9 @@ public class Item : MonoBehaviour
     [SerializeField]
     bool allowMultiplePlayers;
 
+    [SerializeField]
+     protected int scoreValue;
+
 
     [Header("timers")]
     public float pickupTime;
@@ -89,19 +95,46 @@ public class Item : MonoBehaviour
     public float actionTime;
 
     Task pickUp;
-    Task dropOff;
     Task action;
+
+    [SerializeField]
+    protected bool isInsideDropOffArea;
+    [SerializeField]
+    protected string areaTag;
+
+    [SerializeField]
+    [Range(0,1)]
+    float weight;
+
+    public void init()
+    {
+        pickUp.setTimeAndReset(pickupTime);
+        action.setTimeAndReset(actionTime);
+
+        if(!game_ref || game_ref == null)
+        {
+            game_ref = GameObject.FindGameObjectWithTag("Game").GetComponent<Game>();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         pickUp.setTimeAndReset(pickupTime);
-        dropOff.setTimeAndReset(dropOffTime);
         action.setTimeAndReset(actionTime);
     }
 
     // Update is called once per frame
     void Update()
+    {
+       
+
+
+
+
+    }
+
+    protected virtual void OnUpdate()
     {
         //Save current Players
         if (!currentPlayers.Any() && !allowMultiplePlayers)
@@ -133,7 +166,7 @@ public class Item : MonoBehaviour
 
                 }
             }
-            
+
         }
 
         // TODO
@@ -182,29 +215,26 @@ public class Item : MonoBehaviour
 
             }
         }
-
-
-
-
     }
 
-    public void Action()
+    public virtual void Action()
     {
         //each item will have its own 
 
     }
 
-    public void PickUp(Player p)
+    public virtual void PickUp(Player p)
     {
 
         transform.parent = p.itemPosition;
         transform.localPosition = Vector3.zero;
 
         isBeingCarried = true;
+        p.setItem(this);
     }
 
 
-    public void Drop()
+    public virtual void Drop()
     {
         transform.parent = null;
 
@@ -226,5 +256,22 @@ public class Item : MonoBehaviour
         if (players.Contains(p)) players.Remove(p);
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag(areaTag))
+        {
+            isInsideDropOffArea = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag(areaTag))
+        {
+            isInsideDropOffArea = false;
+        }
+    }
+
 
 }

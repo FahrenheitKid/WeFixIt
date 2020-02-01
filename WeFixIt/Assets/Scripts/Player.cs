@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     public Transform itemPosition;
 
+    [SerializeField]
+    protected Item item;
+
     private void Awake()
     {
         id = 0;
@@ -283,4 +286,8 @@ public class Player : MonoBehaviour
         return InputManager.GetKey(id, ac);
     }
 
+    public void setItem(Item i)
+    {
+        item = i;
+    }
 }
