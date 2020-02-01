@@ -77,7 +77,10 @@ public class Hose : MonoBehaviour
 
         while (linePoints.Count > 0)
         {
-            transform.position = linePoints[linePoints.Count - 1];
+            if (linePoints.Count - 2 >= 0)
+            {
+                transform.position = linePoints[linePoints.Count - 2];
+            }
             linePoints.RemoveAt(linePoints.Count - 1);
             UpdateRetractingLine();
 

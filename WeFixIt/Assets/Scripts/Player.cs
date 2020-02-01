@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     private CharacterController body;
     private RaycastHit hit;
 
+    [Header("Animation")]
+    private Animator animator;
+
     [Header("Rotation")]
     public float maxRotationSpeed;
     private Vector3 direction;
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour
         InputManager.Initialize();
         speed = Vector3.zero;
         body = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -175,12 +179,21 @@ public class Player : MonoBehaviour
             }
         }
 
+        animator.SetFloat("speed", speed.magnitude);
         body.SimpleMove(speed);
 
         if (direction != Vector3.zero)
         {
             Vector3 newFacingDirection = Vector3.RotateTowards(transform.forward, direction, Mathf.Deg2Rad * maxRotationSpeed, Mathf.Infinity);
             transform.forward = newFacingDirection;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Hose")
+        {
+            Debug.Log("Tropeça");
         }
     }
 
