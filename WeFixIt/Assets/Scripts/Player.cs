@@ -15,6 +15,13 @@ public class Player : MonoBehaviour
     private CharacterController body;
     private RaycastHit hit;
 
+    [Header("Stumble")]
+    public float stumbleSpeed;
+    public float stumbleBreakSpeed;
+    public float stumbleTime;
+    private bool stumbling = false;
+    private float timer = 0f;
+
     [Header("Animation")]
     private Animator animator;
 
@@ -36,7 +43,14 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Move();
+        if (!stumbling)
+        {
+            Move();
+        }
+        else
+        {
+            Stumble();
+        }
     }
 
     private void Move()
@@ -192,11 +206,60 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Stumble()
+    {
+        timer += Time.deltaTime;
+        if (timer >= stumbleTime)
+        {
+            stumbling = false;
+            timer = 0f;
+            return;
+        }
+
+        if (speed.x < 0)
+        {
+            speed.x += stumbleBreakSpeed * Time.deltaTime;
+            if (speed.x > 0)
+            {
+                speed.x = 0;
+            }
+        }
+        else if (speed.x > 0)
+        {
+            speed.x -= stumbleBreakSpeed * Time.deltaTime;
+            if (speed.x < 0)
+            {
+                speed.x = 0;
+            }
+        }
+
+        if (speed.z < 0)
+        {
+            speed.z += stumbleBreakSpeed * Time.deltaTime;
+            if (speed.z > 0)
+            {
+                speed.z = 0;
+            }
+        }
+        else if (speed.z > 0)
+        {
+            speed.z -= stumbleBreakSpeed * Time.deltaTime;
+            if (speed.z < 0)
+            {
+                speed.z = 0;
+            }
+        }
+
+        body.SimpleMove(speed);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Hose")
+        if (other.gameObject.layer == LayerMask.NameToLayer("Hose") && !stumbling)
         {
-            Debug.Log("Tropeça");
+            stumbling = true;
+            animator.SetTrigger("stumble");
+            speed = speed.normalized * stumbleSpeed;
         }
     }
 
