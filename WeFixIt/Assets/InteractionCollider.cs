@@ -7,21 +7,22 @@ public class InteractionCollider : MonoBehaviour
 
     [SerializeField]
     private Item item_ref;
- 
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        print(other.gameObject.tag);
+        if (other.gameObject.CompareTag("Player"))
         {
-            item_ref.addPlayer(collision.gameObject.GetComponent<Player>());
+            item_ref.addPlayer(other.gameObject.GetComponent<Player>());
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            item_ref.removePlayer(collision.gameObject.GetComponent<Player>()); ;
+            item_ref.removePlayer(other.gameObject.GetComponent<Player>());
         }
     }
 }
