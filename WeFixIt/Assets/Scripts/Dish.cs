@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Dish : Item
@@ -29,13 +30,19 @@ public class Dish : Item
         else
         {
            GameObject go = Instantiate(trash, transform.position, Quaternion.identity);
+            
             go.GetComponent<Trash>().init();
+            
+            
+            
+
         }
         
         Destroy(this.gameObject);
 
     }
 
+    
 
    
 }

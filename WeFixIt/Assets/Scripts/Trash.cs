@@ -15,4 +15,26 @@ public class Trash : Item
     {
         OnUpdate();
     }
+
+    public override void init()
+    {
+        base.init();
+
+        StartCoroutine(resetTrashFalls());
+       // print("init do trash" + players.Count);
+       
+    }
+
+
+
+
+    private IEnumerator resetTrashFalls()
+    {
+        yield return null;
+        foreach (Player p in players)
+        {
+
+            p.setTrashFall(false);
+        }
+    }
 }

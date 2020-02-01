@@ -428,10 +428,10 @@ GameObject:
   - component: {fileID: 5985343783835572124}
   - component: {fileID: 5985343783835572115}
   - component: {fileID: 5985343783835572114}
-  - component: {fileID: 5985343783835572126}
+  - component: {fileID: -6973816849852313405}
   m_Layer: 0
   m_Name: Dish
-  m_TagString: Untagged
+  m_TagString: Dish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -512,7 +512,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5985343783835572126
+--- !u!114 &-6973816849852313405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -521,18 +521,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 5985343783835572113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 493ab8dd5697cdf43b81a3d839cc83cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6960e3c484f5d7f46a99e5025cf08d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game_ref: {fileID: 0}
   interactionCollider: {fileID: 5985343784052519415}
   players: []
   currentPlayers: []
   isBeingCarried: 0
   isCarriable: 1
   allowMultiplePlayers: 0
-  pickupTime: 1
+  scoreValue: 10
+  pickupTime: 1.5
   dropOffTime: 0
   actionTime: 0
+  isInsideDropOffArea: 0
+  areaTag: Kitchen
+  weight: 0
+  trash: {fileID: 5985343783835572113, guid: b92eebbef69ba724db2c9c1c28db9e2d, type: 3}
 --- !u!1 &5985343784052519413
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +552,7 @@ GameObject:
   - component: {fileID: 5985343784052519408}
   m_Layer: 0
   m_Name: InteractionCollider
-  m_TagString: Untagged
+  m_TagString: DishTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -590,4 +596,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da401dea6f4c47c49893f0ed538e76e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item_ref: {fileID: 5985343783835572126}
+  item_ref: {fileID: -6973816849852313405}

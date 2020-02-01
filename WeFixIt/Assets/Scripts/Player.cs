@@ -35,6 +35,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     protected Item item;
 
+    [SerializeField]
+     bool canTrashFall;
+
     private void Awake()
     {
         id = 0;
@@ -258,14 +261,35 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("TrashTrigger") && !other.gameObject.GetComponent<InteractionCollider>().item_ref.GetBeingCarried())
+        {
+            print("entrou lixo");
+            canTrashFall = true;
+        }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
         if (other.gameObject.layer == LayerMask.NameToLayer("Hose") && !stumbling)
         {
-            stumbling = true;
-            animator.SetTrigger("stumble");
-            speed = speed.normalized * stumbleSpeed;
+            triggerStumble();
         }
+
+        if (other.gameObject.CompareTag("TrashTrigger") && canTrashFall)
+        {
+            canTrashFall = false;
+            triggerStumble();
+        }
+
+
     }
 
+    public void triggerStumble()
+    {
+        stumbling = true;
+        animator.SetTrigger("stumble");
+        speed = speed.normalized * stumbleSpeed;
+    }
     public int getId()
     {
         return id;
@@ -289,5 +313,10 @@ public class Player : MonoBehaviour
     public void setItem(Item i)
     {
         item = i;
+    }
+
+    public void setTrashFall(bool b)
+    {
+        canTrashFall = b;
     }
 }

@@ -75,9 +75,9 @@ public class Item : MonoBehaviour
     protected BoxCollider interactionCollider;
 
     [SerializeField]
-    List<Player> players = new List<Player>(); // Players within item area
+    protected List<Player> players = new List<Player>(); // Players within item area
     [SerializeField]
-    List<Player> currentPlayers = new List<Player>(); // players currently interacting
+    protected List<Player> currentPlayers = new List<Player>(); // players currently interacting
     [SerializeField]
     bool isBeingCarried;
     [SerializeField]
@@ -106,7 +106,7 @@ public class Item : MonoBehaviour
     [Range(0,1)]
     float weight;
 
-    public void init()
+    public virtual void init()
     {
         pickUp.setTimeAndReset(pickupTime);
         action.setTimeAndReset(actionTime);
@@ -194,7 +194,7 @@ public class Item : MonoBehaviour
             if (currentPlayers.First().getKey(KeyActions.Action))
             {
                 pickUp.progress();
-                print(pickUp.getRemainingTime());
+                //print(pickUp.getRemainingTime());
 
             }
             else if (currentPlayers.First().getKeyUp(KeyActions.Action))
@@ -281,7 +281,7 @@ public class Item : MonoBehaviour
         return players;
     }
 
-    public List<Player> GetCurrentPlayer()
+    public List<Player> GetCurrentPlayers()
     {
         return currentPlayers;
     }

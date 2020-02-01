@@ -6,7 +6,7 @@ public class InteractionCollider : MonoBehaviour
 {
 
     [SerializeField]
-    private Item item_ref;
+    public Item item_ref;
 
 
 
@@ -14,7 +14,7 @@ public class InteractionCollider : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
        
-            print(other.gameObject.tag);
+           
         if (other.gameObject.CompareTag("Player"))
         {
            
