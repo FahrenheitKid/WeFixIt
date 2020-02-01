@@ -177,4 +177,9 @@ public class Player : MonoBehaviour
         Vector3 newFacingDirection = Vector3.RotateTowards(transform.forward, direction, Mathf.Deg2Rad * maxRotationSpeed, Mathf.Infinity);
         transform.forward = newFacingDirection;
     }
+
+    public int getId()
+    {
+        return id;
+    }
 }
