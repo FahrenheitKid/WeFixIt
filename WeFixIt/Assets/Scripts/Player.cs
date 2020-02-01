@@ -29,9 +29,6 @@ public class Player : MonoBehaviour
     public float maxRotationSpeed;
     private Vector3 direction;
 
-    [SerializeField]
-    public Transform itemPosition;
-
     private void Awake()
     {
         id = 0;
@@ -266,20 +263,5 @@ public class Player : MonoBehaviour
     public int getId()
     {
         return id;
-    }
-
-    public bool getKeyDown(KeyActions ac)
-    {
-        return InputManager.GetKeyDown(id, ac);
-    }
-
-    public bool getKeyUp(KeyActions ac)
-    {
-        return InputManager.GetKeyUp(id, ac);
-    }
-
-    public bool getKey(KeyActions ac)
-    {
-        return InputManager.GetKey(id, ac);
     }
 }
