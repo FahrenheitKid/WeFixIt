@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44824833, g: 0.49827534, b: 0.57558256, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -238,6 +238,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 785305555, guid: cbf132d40598b8242a12dbd7bce0ea8a, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3600113115104090816, guid: cbf132d40598b8242a12dbd7bce0ea8a,
         type: 3}
       propertyPath: m_Name
@@ -697,6 +701,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491823620}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &785305555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 785305555, guid: cbf132d40598b8242a12dbd7bce0ea8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 74564835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &785305557
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785305555}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &804971116
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +895,9 @@ MonoBehaviour:
   maxSpeed: 1.5
   acceleration: 4
   breakSpeed: 6
+  stumbleSpeed: 2
+  stumbleBreakSpeed: 8
+  stumbleTime: 1.5
   maxRotationSpeed: 3
 --- !u!95 &852873184
 Animator:
