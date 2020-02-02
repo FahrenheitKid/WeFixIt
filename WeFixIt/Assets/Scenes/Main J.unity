@@ -5588,6 +5588,22 @@ PrefabInstance:
       propertyPath: timeText
       value: 
       objectReference: {fileID: 2007003923}
+    - target: {fileID: 1924973900716970919, guid: 425146757ab244f429e6fe61088c0fb6,
+        type: 3}
+      propertyPath: time
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924973900716970919, guid: 425146757ab244f429e6fe61088c0fb6,
+        type: 3}
+      propertyPath: dishQuantity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924973900716970919, guid: 425146757ab244f429e6fe61088c0fb6,
+        type: 3}
+      propertyPath: dish_prefab
+      value: 
+      objectReference: {fileID: 5985343783835572113, guid: 91fe2ec12beef214cb10c494c6c9e623,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 425146757ab244f429e6fe61088c0fb6, type: 3}
 --- !u!1001 &2884122852804953332

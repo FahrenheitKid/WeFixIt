@@ -21,6 +21,9 @@ public class Game : MonoBehaviour
 
     private Animator dumpAnimator;
 
+    [SerializeField]
+    TextMeshProUGUI timeText;
+
     // Start is called before the first frame update
     void Start()
     {
