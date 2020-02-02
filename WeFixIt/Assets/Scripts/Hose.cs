@@ -13,6 +13,7 @@ public class Hose : Item
     private bool retracting;
 
     [Header("Refs")]
+    public Transform endPoint;
     private LineRenderer line;
     private HoseBox hoseBox;
 
@@ -48,7 +49,8 @@ public class Hose : Item
 
         if (distance > maxAnchorDistance)
         {
-            Vector3 direction = transform.position - anchorPoint;
+            anchorPoint.y = 0.05f;
+            Vector3 direction = new Vector3(endPoint.position.x, 0.05f, endPoint.position.z) - anchorPoint;
             direction = direction.normalized * maxAnchorDistance;
             hoseBox.AddCollider(anchorPoint, anchorPoint + direction);
             anchorPoint += direction;
@@ -62,7 +64,7 @@ public class Hose : Item
     {
         line.positionCount = linePoints.Count + 1;
         line.SetPositions(linePoints.ToArray());
-        line.SetPosition(line.positionCount - 1, transform.position);
+        line.SetPosition(line.positionCount - 1, endPoint.position);
     }
 
     private void UpdateRetractingLine()
