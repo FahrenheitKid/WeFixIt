@@ -20,6 +20,7 @@ TagManager:
   - Dirt
   - WaterJet
   - DishSpawner
+  - DirtTrigger
   layers:
   - Default
   - TransparentFX

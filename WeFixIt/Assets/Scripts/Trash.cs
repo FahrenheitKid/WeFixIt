@@ -33,6 +33,7 @@ public class Trash : Item
         {
             game_ref.PlayDump();
             game_ref.Score(scoreValue);
+            game_ref.DeliverTrash(this);
             Destroy(this.gameObject);
         }
 

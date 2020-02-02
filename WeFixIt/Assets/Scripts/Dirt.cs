@@ -71,6 +71,7 @@ public class Dirt : MonoBehaviour
             if (currentDirtyness <= 0)
             {
                 this.game_ref.Score(scoreValue);
+                game_ref.RemoveDirt(this);
                 Destroy(this.gameObject);
             }
         }

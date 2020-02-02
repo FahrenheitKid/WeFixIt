@@ -46,6 +46,16 @@ MonoBehaviour:
   score: 0
   time: 120
   dishQuantity: 10
+  isPoolComplete: 0
+  dishComplete: 0
+  dirts: []
+  trashes: []
   spawnPos: {fileID: 0}
   dish_prefab: {fileID: 5985343783835572113, guid: 91fe2ec12beef214cb10c494c6c9e623,
     type: 3}
+  timeText: {fileID: 0}
+  trashText: {fileID: 0}
+  dishText: {fileID: 0}
+  poolText: {fileID: 0}
+  dirtText: {fileID: 0}
+  pool_ref: {fileID: 0}

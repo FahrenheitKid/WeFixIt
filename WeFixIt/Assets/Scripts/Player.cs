@@ -293,16 +293,17 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (((other.gameObject.layer == LayerMask.NameToLayer("Hose") || other.gameObject.CompareTag("Dirt")) && !stumbling && canHoseFall))
+        if (((other.gameObject.layer == LayerMask.NameToLayer("Hose") || other.gameObject.CompareTag("DirtTrigger")) && !stumbling && canHoseFall))
         {
             if(item && item != null)
             {
-                 if(!item.CompareTag("Hose") && other.gameObject.layer != LayerMask.NameToLayer("Hose"))
+                 if(!item.CompareTag("Hose") && other.gameObject.layer == LayerMask.NameToLayer("Hose"))
                 {
                     triggerStumble();
                     item.Drop();
                 }
-                 else if(item.CompareTag("Hose") && other.gameObject.layer != LayerMask.NameToLayer("Hose"))
+
+               if (item.CompareTag("Hose") && other.gameObject.layer != LayerMask.NameToLayer("Hose"))
                 {
                     triggerStumble();
                     item.Drop();

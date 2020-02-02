@@ -7,14 +7,21 @@ public class Pool : MonoBehaviour
     public float fullY;
     public float frameIncrease;
     public bool isFull = false;
+    public float initY;
 
     private ParticleSystem completionParticle;
-    private Game game;
+    private Game game_ref;
+
+
+
 
     private void Awake()
     {
         completionParticle = GetComponentInChildren<ParticleSystem>();
-        game = FindObjectOfType<Game>();
+        if (!game_ref || game_ref == null)
+        {
+            game_ref = GameObject.FindGameObjectWithTag("Game").GetComponent<Game>();
+        }
     }
 
     private void Update()
@@ -32,8 +39,10 @@ public class Pool : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, fullY, transform.position.z);
                 isFull = true;
                 completionParticle.Play();
-                game.Score(500);
+                game_ref.Score(500);
+                game_ref.setPoolComplete(true);
             }
+            game_ref.updateTextCounters();
         }
     }
 }

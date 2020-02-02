@@ -26,12 +26,14 @@ public class Dish : Item
         if(isInsideDropOffArea)
         {
             game_ref.Score(scoreValue);
+            game_ref.DeliverDish();
         }
         else
         {
            GameObject go = Instantiate(trash, transform.position, Quaternion.identity);
             
             go.GetComponent<Trash>().init();
+            game_ref.addTrash(go.GetComponent<Trash>());
             
             
             
