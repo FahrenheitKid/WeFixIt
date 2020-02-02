@@ -366,10 +366,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 200
+  m_fontSize: 72
   m_fontSizeBase: 200
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -683,6 +683,7 @@ MonoBehaviour:
   weight: 0
   maxAnchorDistance: 0.4
   retractionDelay: 0.045
+  waterJet: {fileID: 462817911539204161}
 --- !u!120 &8547504971687689770
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -855,6 +856,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19772790816979713, guid: c42d5fb606606cf44aa834f230f3a146,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19772790816979713, guid: c42d5fb606606cf44aa834f230f3a146,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 19772790816979743, guid: c42d5fb606606cf44aa834f230f3a146,
         type: 3}
       propertyPath: m_Name
@@ -862,6 +873,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c42d5fb606606cf44aa834f230f3a146, type: 3}
+--- !u!198 &462817911539204161 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19772790816979713, guid: c42d5fb606606cf44aa834f230f3a146,
+    type: 3}
+  m_PrefabInstance: {fileID: 444305294192196416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &462817911539204160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 19772790816979712, guid: c42d5fb606606cf44aa834f230f3a146,

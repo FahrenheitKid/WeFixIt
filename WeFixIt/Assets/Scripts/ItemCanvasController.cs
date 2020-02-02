@@ -24,7 +24,7 @@ public class ItemCanvasController : MonoBehaviour
     {
         transform.forward = Camera.main.transform.forward;
 
-        if (!item.getActionLock() && item.GetPlayerList().Any())
+        if ((!item.getActionLock() && item.GetPlayerList().Any()) || item.GetBeingCarried())
         {
             canvas.enabled = true;
         }
