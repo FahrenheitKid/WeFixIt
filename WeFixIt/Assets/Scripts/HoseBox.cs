@@ -2,15 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HoseBox : MonoBehaviour
+public class HoseBox : Item
 {
     [Header("Properties")]
     public Vector2 colliderSize;
     private Transform colliders;
 
+    [SerializeField]
+    Hose hose_ref;
+
     private void Awake()
     {
         colliders = transform.GetChild(0);
+        actionLock = true;
+    }
+
+    private void Start()
+    {
+        init();
+    }
+
+    private void Update()
+    {
+        OnUpdate();
     }
 
     public void AddCollider(Vector3 pointA, Vector3 pointB)
@@ -32,5 +46,19 @@ public class HoseBox : MonoBehaviour
         {
             Destroy(colliders.GetChild(i).gameObject);
         }
+    }
+
+    public override void Action()
+    {
+        base.Action();
+
+        print("SHUA SHUA");
+
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 }

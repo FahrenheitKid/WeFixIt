@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hose : MonoBehaviour
+public class Hose : Item
 {
     [Header("Properties")]
     public float maxAnchorDistance;
@@ -26,12 +26,14 @@ public class Hose : MonoBehaviour
         linePoints.Add(anchorPoint);
     }
 
+    private void Start()
+    {
+        init();
+    }
+
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Retract();
-        }
+        OnUpdate();
 
         if(retracting)
         {
@@ -91,5 +93,14 @@ public class Hose : MonoBehaviour
         anchorPoint = transform.position;
         linePoints.Add(hoseBox.transform.position);
         retracting = false;
+    }
+
+    public override void Drop()
+    {
+        base.Drop();
+        if (isInsideDropOffArea)
+        {
+            Retract();
+        }
     }
 }

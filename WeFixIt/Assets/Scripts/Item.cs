@@ -62,9 +62,7 @@ public class Item : MonoBehaviour
             return Mathf.Abs(timeCurrent - time);
         }
         
-
-
-
+        
 
     }
 
@@ -87,6 +85,12 @@ public class Item : MonoBehaviour
 
     [SerializeField]
      protected int scoreValue;
+
+    [SerializeField]
+    protected bool canStartPickUp = false;
+
+    [SerializeField]
+    protected bool actionLock = false;
 
 
     [Header("timers")]
@@ -175,7 +179,7 @@ public class Item : MonoBehaviour
         {//generator item in this case
             foreach (Player p in players) // foreach player within the item area
             {
-                if (p.getKeyDown(KeyActions.Action))
+                if (p.getKey(KeyActions.Action))
                 {
 
                     action.progress();
@@ -188,7 +192,34 @@ public class Item : MonoBehaviour
                 }
             }
         }
-        else if (isCarriable && !allowMultiplePlayers && !pickUp.IsComplete() && currentPlayers.Any())
+        else if(!isCarriable && !allowMultiplePlayers && !action.IsComplete() && !actionLock && currentPlayers.Any())
+        {
+
+            if (currentPlayers.First().getKey(KeyActions.Action))
+            {
+
+                action.progress();
+            }
+            else if (currentPlayers.First().getKeyUp(KeyActions.Action))
+            {
+                action.reset();
+                
+            }
+            if (action.IsComplete())
+            {
+
+                Action();
+            }
+
+        }
+        else if (isCarriable && !allowMultiplePlayers && !pickUp.IsComplete() && currentPlayers.Any() && !canStartPickUp)
+        {
+            if (currentPlayers.First().getKeyDown(KeyActions.Action))
+            {
+                canStartPickUp = true;
+            }
+        }
+        else if (isCarriable && !allowMultiplePlayers && !pickUp.IsComplete() && currentPlayers.Any() && canStartPickUp)
         {
 
             if (currentPlayers.First().getKey(KeyActions.Action))
@@ -200,6 +231,7 @@ public class Item : MonoBehaviour
             else if (currentPlayers.First().getKeyUp(KeyActions.Action))
             {
                 pickUp.reset();
+                canStartPickUp = false;
             }
 
             if (pickUp.IsComplete())
@@ -239,7 +271,14 @@ public class Item : MonoBehaviour
         transform.parent = null;
 
         isBeingCarried = false;
+        canStartPickUp = false;
+        if (currentPlayers.Any())
+        {
+            currentPlayers.First().setItem(null);
+        }
+            
         pickUp.reset();
+
 
 
     }
@@ -260,18 +299,28 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(areaTag))
+        if(areaTag.Any() && areaTag != null)
         {
-            isInsideDropOffArea = true;
+            if (other.gameObject.CompareTag(areaTag))
+            {
+                print(gameObject.name + "entrou na area " + areaTag);
+                isInsideDropOffArea = true;
+            }
         }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag(areaTag))
+
+        if (areaTag.Any() && areaTag != null)
         {
-            isInsideDropOffArea = false;
+            if (other.gameObject.CompareTag(areaTag))
+            {
+                isInsideDropOffArea = false;
+            }
         }
+        
     }
 
 
@@ -294,6 +343,31 @@ public class Item : MonoBehaviour
     public bool GetBeingCarried()
     {
         return isBeingCarried;
+    }
+
+    public bool IsCarriable()
+    {
+        return isCarriable;
+    }
+
+    public void setActionLock(bool b)
+    {
+        actionLock = b;
+    }
+
+    public Task getPickUpTask()
+    {
+        return pickUp;
+    }
+
+    public Task getActionTask()
+    {
+        return action;
+    }
+
+    public bool getActionLock()
+    {
+        return actionLock;
     }
 
 }

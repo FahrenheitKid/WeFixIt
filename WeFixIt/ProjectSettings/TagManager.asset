@@ -11,6 +11,12 @@ TagManager:
   - DishTrigger
   - Kitchen
   - Trash Bin
+  - HoseTrigger
+  - Hose
+  - HoseboxTrigger
+  - Hose Box
+  - HoseBoxArea
+  - HoseSphere
   layers:
   - Default
   - TransparentFX

@@ -20,6 +20,21 @@ public class InteractionCollider : MonoBehaviour
            
             item_ref.addPlayer(other.gameObject.GetComponent<Player>());
         }
+        if (item_ref.CompareTag("Hose Box"))
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                if (other.gameObject.GetComponent<Player>().GetItem() != null)
+                {
+                    if (other.gameObject.GetComponent<Player>().GetItem().CompareTag("Hose"))
+                    {
+
+                        item_ref.setActionLock(true);
+                    }
+                }
+            }
+        }
+
     }
 
    
@@ -31,5 +46,21 @@ public class InteractionCollider : MonoBehaviour
                 
                 item_ref.removePlayer(other.gameObject.GetComponent<Player>());
             }
+
+        if (item_ref.CompareTag("Hose Box"))
+        {
+            if(other.gameObject.CompareTag("Player"))
+            {
+                if (other.gameObject.GetComponent<Player>().GetItem() != null)
+                {
+                    if (other.gameObject.GetComponent<Player>().GetItem().CompareTag("Hose"))
+                    {
+
+                        item_ref.setActionLock(false);
+                    }
+                }
+            }
+            
+        }
     }
 }

@@ -272,7 +272,14 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Hose") && !stumbling)
         {
-            triggerStumble();
+            if(item && item != null)
+            {
+                 if(!item.CompareTag("Hose"))
+                {
+                    triggerStumble();
+                }
+            }
+            ;
         }
 
         if (other.gameObject.CompareTag("TrashTrigger") && canTrashFall)
@@ -313,6 +320,13 @@ public class Player : MonoBehaviour
     public void setItem(Item i)
     {
         item = i;
+    }
+
+    public Item GetItem()
+    {
+        if (item || item != null)
+            return item;
+        else return null;
     }
 
     public void setTrashFall(bool b)

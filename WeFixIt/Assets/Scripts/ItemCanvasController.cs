@@ -24,7 +24,7 @@ public class ItemCanvasController : MonoBehaviour
     {
         transform.forward = Camera.main.transform.forward;
 
-        if (item.GetPlayerList().Any())
+        if (!item.getActionLock() && item.GetPlayerList().Any())
         {
             canvas.enabled = true;
         }
@@ -33,7 +33,7 @@ public class ItemCanvasController : MonoBehaviour
             canvas.enabled = false;
         }
 
-        if (!item.GetBeingCarried())
+        if (!item.GetBeingCarried() && item.IsCarriable())
         {
             text.text = "PICK UP";
 
@@ -46,7 +46,20 @@ public class ItemCanvasController : MonoBehaviour
                 fill.fillAmount = 0;
             }
         }
-        else
+        else if(!item.IsCarriable() && item.getActionTask().time > 0 && !item.getActionTask().IsComplete() && !item.getActionLock())
+        {
+            text.text = "TURN ON";
+
+            if (item.getActionTask().timeCurrent > 0 )
+            {
+                fill.fillAmount = 1 - (item.getActionTask().getRemainingTime() / item.actionTime);
+            }
+            else
+            {
+                fill.fillAmount = 0;
+            }
+        }
+        else if(item.GetBeingCarried())
         {
             text.text = "DROP";
             fill.fillAmount = 0;
