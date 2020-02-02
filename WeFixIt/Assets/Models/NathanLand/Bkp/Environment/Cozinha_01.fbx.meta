@@ -1,26 +1,8 @@
 fileFormatVersion: 2
-guid: 9184ae1ec84f8204f92a9db0c3da97f3
+guid: f09e2ac29012186469cf83d5d1d60704
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable:
-  - first:
-      74: 3997614985018663949
-    second: Armature|Grab
-  - first:
-      74: -4946513579961672513
-    second: Armature|Hold
-  - first:
-      74: -8945691123924629249
-    second: Armature|Idle
-  - first:
-      74: -2595835576858995089
-    second: Armature|Leave
-  - first:
-      74: -5913978943142729594
-    second: Armature|Move
-  - first:
-      74: -4353067212287027777
-    second: Armature|HoldIdle
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -52,7 +34,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.04
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -98,7 +80,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.04
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

@@ -18,6 +18,9 @@ ModelImporter:
   - first:
       74: -5913978943142729594
     second: Armature|Move
+  - first:
+      74: -4353067212287027777
+    second: Armature|HoldIdle
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -95,7 +98,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0004
+    globalScale: 0.04
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
