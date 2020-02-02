@@ -19,6 +19,7 @@ TagManager:
   - HoseSphere
   - Dirt
   - WaterJet
+  - DishSpawner
   layers:
   - Default
   - TransparentFX

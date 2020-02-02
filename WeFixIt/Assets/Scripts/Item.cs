@@ -324,6 +324,12 @@ public class Item : MonoBehaviour
                 isInsideDropOffArea = false;
             }
         }
+
+        if(other.gameObject.CompareTag("DishSpawner"))
+        {
+            print("Sai spawn");
+            game_ref.RespawnDish();
+        }
         
     }
 
