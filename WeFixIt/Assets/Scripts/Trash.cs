@@ -31,7 +31,7 @@ public class Trash : Item
         base.Drop();
         if (isInsideDropOffArea)
         {
-
+            game_ref.PlayDump();
             game_ref.Score(scoreValue);
             Destroy(this.gameObject);
         }

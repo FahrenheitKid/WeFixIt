@@ -23,6 +23,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dumpAnimator = GameObject.Find("Dump").GetComponent<Animator>();
         Application.targetFrameRate = 60;
 
         RespawnDish();
@@ -56,5 +57,10 @@ public class Game : MonoBehaviour
         }
         else return;
         
+    }
+
+    public void PlayDump()
+    {
+        dumpAnimator.SetTrigger("dump");
     }
 }
