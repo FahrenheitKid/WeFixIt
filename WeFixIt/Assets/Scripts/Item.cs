@@ -321,6 +321,7 @@ public class Item : MonoBehaviour
         {
             if (other.gameObject.CompareTag(areaTag))
             {
+                print(gameObject.name + "saiu na area " + areaTag);
                 isInsideDropOffArea = false;
             }
         }

@@ -297,7 +297,12 @@ public class Player : MonoBehaviour
         {
             if(item && item != null)
             {
-                 if(!item.CompareTag("Hose"))
+                 if(!item.CompareTag("Hose") && other.gameObject.layer != LayerMask.NameToLayer("Hose"))
+                {
+                    triggerStumble();
+                    item.Drop();
+                }
+                 else if(item.CompareTag("Hose") && other.gameObject.layer != LayerMask.NameToLayer("Hose"))
                 {
                     triggerStumble();
                     item.Drop();
@@ -314,6 +319,13 @@ public class Player : MonoBehaviour
         {
             canTrashFall = false;
             triggerStumble();
+            if (item && item != null)
+            {
+                
+                    triggerStumble();
+                    item.Drop();
+                
+            }
         }
 
         

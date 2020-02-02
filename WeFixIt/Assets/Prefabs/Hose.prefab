@@ -577,6 +577,7 @@ GameObject:
   - component: {fileID: 8547504971687689771}
   - component: {fileID: 8547504971687689766}
   - component: {fileID: 8547504971687689770}
+  - component: {fileID: 1146971043191635615}
   m_Layer: 0
   m_Name: Hose
   m_TagString: Hose
@@ -635,6 +636,7 @@ MonoBehaviour:
   retractionDelay: 0.045
   endPoint: {fileID: 1292079480}
   waterJet: {fileID: 462817911539204161}
+  startPos: {fileID: 0}
 --- !u!120 &8547504971687689770
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -732,6 +734,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!65 &1146971043191635615
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8547504971687689767}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07, y: 0.07, z: 0.11}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &444305294192196416
 PrefabInstance:
   m_ObjectHideFlags: 0
