@@ -1,29 +1,8 @@
 fileFormatVersion: 2
-guid: 45c2fb49a8c0f5146914d71a5aceb81d
+guid: 2a834faf264e2db43b2426b95b0f0c4f
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable:
-  - first:
-      74: 6997882522552206460
-    second: Circle|CircleAction
-  - first:
-      74: 4659824787759654068
-    second: Circle|TrashOpen
-  - first:
-      74: -7906184280053792553
-    second: Circle|Circle.001Action
-  - first:
-      74: -1218766248890309208
-    second: Circle|Circle.001Action.002
-  - first:
-      74: 7129297167202622145
-    second: Circle|Cylinder.001Action
-  - first:
-      74: 2955628820315075477
-    second: Circle|Plane.003Action
-  - first:
-      74: 8900153107138976075
-    second: Circle|Plane.004Action
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 1
