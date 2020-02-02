@@ -277,9 +277,14 @@ public class Player : MonoBehaviour
                  if(!item.CompareTag("Hose"))
                 {
                     triggerStumble();
+                    item.Drop();
                 }
             }
-            ;
+            else
+            {
+                triggerStumble();
+            }
+            
         }
 
         if (other.gameObject.CompareTag("TrashTrigger") && canTrashFall)

@@ -48,7 +48,15 @@ public class ItemCanvasController : MonoBehaviour
         }
         else if(!item.IsCarriable() && item.getActionTask().time > 0 && !item.getActionTask().IsComplete() && !item.getActionLock())
         {
-            text.text = "TURN ON";
+            bool on = false;
+            //Hose Box
+            if(item.CompareTag("Hose Box"))
+            {
+                HoseBox hb = (HoseBox)item;
+                on = hb.getHoseRef().getWaterJet().isPlaying;
+            }
+            
+            text.text = (on)?   "TURN OFF" : "TURN ON";
 
             if (item.getActionTask().timeCurrent > 0 )
             {

@@ -11,6 +11,8 @@ public class HoseBox : Item
     [SerializeField]
     Hose hose_ref;
 
+
+
     private void Awake()
     {
         colliders = transform.GetChild(0);
@@ -53,12 +55,19 @@ public class HoseBox : Item
         base.Action();
 
         print("SHUA SHUA");
+        hose_ref.turnOnWaterJet(!hose_ref.getWaterJet().isPlaying);
 
+        action.reset();
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
         
+    }
+
+    public Hose getHoseRef()
+    {
+        return hose_ref;
     }
 }

@@ -98,8 +98,8 @@ public class Item : MonoBehaviour
     public float dropOffTime;
     public float actionTime;
 
-    Task pickUp;
-    Task action;
+    protected Task pickUp;
+    protected Task action;
 
     [SerializeField]
     protected bool isInsideDropOffArea;
@@ -260,6 +260,7 @@ public class Item : MonoBehaviour
 
         transform.parent = p.itemPosition;
         transform.localPosition = Vector3.zero;
+        transform.localEulerAngles = Vector3.zero;
 
         isBeingCarried = true;
         p.setItem(this);

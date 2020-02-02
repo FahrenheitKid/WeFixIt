@@ -15,6 +15,9 @@ public class Hose : Item
     private LineRenderer line;
     private HoseBox hoseBox;
 
+    [SerializeField]
+    ParticleSystem waterJet;
+
     private void Awake()
     {
         retracting = false;
@@ -101,6 +104,23 @@ public class Hose : Item
         if (isInsideDropOffArea)
         {
             Retract();
+        }
+    }
+
+    public ParticleSystem getWaterJet()
+    {
+        return waterJet;
+    }
+
+    public void turnOnWaterJet(bool on)
+    {
+        if(on)
+        {
+            waterJet.Play();
+        }
+        else
+        {
+            waterJet.Stop();
         }
     }
 }
