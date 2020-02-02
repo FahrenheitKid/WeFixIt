@@ -173,7 +173,7 @@ public class Item : MonoBehaviour
 
         }
 
-        // TODO
+        
 
         if (!isCarriable && allowMultiplePlayers && !action.IsComplete())
         {//generator item in this case
@@ -194,7 +194,7 @@ public class Item : MonoBehaviour
         }
         else if(!isCarriable && !allowMultiplePlayers && !action.IsComplete() && !actionLock && currentPlayers.Any())
         {
-
+            // hoseBox Water
             if (currentPlayers.First().getKey(KeyActions.Action))
             {
 

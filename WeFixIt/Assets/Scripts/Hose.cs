@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Hose : Item
@@ -100,11 +101,22 @@ public class Hose : Item
 
     public override void Drop()
     {
-        base.Drop();
+        if (currentPlayers.Any())
+        {
+            currentPlayers.First().setHoseFall(false);
+        }
+            base.Drop();
+        
         if (isInsideDropOffArea)
         {
             Retract();
         }
+    }
+
+    public override void PickUp(Player p)
+    {
+        p.setHoseFall(true);
+        base.PickUp(p);
     }
 
     public ParticleSystem getWaterJet()

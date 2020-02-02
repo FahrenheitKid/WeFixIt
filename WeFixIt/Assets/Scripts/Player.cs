@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
     [SerializeField]
      bool canTrashFall;
 
+    [SerializeField]
+    bool canHoseFall;
+
     private void Awake()
     {
         id = 0;
@@ -267,10 +270,31 @@ public class Player : MonoBehaviour
             canTrashFall = true;
         }
 
+        if (other.gameObject.CompareTag("Dirt"))
+        {
+            triggerStumble();
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Hose") && !stumbling && !canHoseFall)
+        {
+            if (item && item != null)
+            {
+                if (!item.CompareTag("Hose"))
+                {
+                    canHoseFall = true;
+                }
+            }
+            else
+            {
+                canHoseFall = true;
+            }
+        }
+
+
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Hose") && !stumbling)
+        if (other.gameObject.layer == LayerMask.NameToLayer("Hose") && !stumbling && canHoseFall)
         {
             if(item && item != null)
             {
@@ -293,6 +317,7 @@ public class Player : MonoBehaviour
             triggerStumble();
         }
 
+        
 
     }
 
@@ -337,5 +362,10 @@ public class Player : MonoBehaviour
     public void setTrashFall(bool b)
     {
         canTrashFall = b;
+    }
+
+    public void setHoseFall(bool b)
+    {
+        canHoseFall = b;
     }
 }

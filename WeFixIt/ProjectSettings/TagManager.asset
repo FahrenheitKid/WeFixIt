@@ -17,6 +17,7 @@ TagManager:
   - Hose Box
   - HoseBoxArea
   - HoseSphere
+  - Dirt
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Wall
   - Ground
   - Hose
-  - 
+  - Dirt
   - 
   - 
   - 
