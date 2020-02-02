@@ -10,6 +10,8 @@ public class Pool : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+        print("carai");
+
         if (other.CompareTag("WaterJet"))
         {
             transform.Translate(new Vector3(0, frameIncrease, 0));

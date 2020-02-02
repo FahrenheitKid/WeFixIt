@@ -370,7 +370,7 @@ PrefabInstance:
     - target: {fileID: 1649236337890595323, guid: 717eccb2c9ee7d342a41a1d6902045bb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.196
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1649236337890595323, guid: 717eccb2c9ee7d342a41a1d6902045bb,
         type: 3}
@@ -380,7 +380,7 @@ PrefabInstance:
     - target: {fileID: 1649236337890595323, guid: 717eccb2c9ee7d342a41a1d6902045bb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.047
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1649236337890595323, guid: 717eccb2c9ee7d342a41a1d6902045bb,
         type: 3}
@@ -1444,7 +1444,7 @@ PrefabInstance:
     - target: {fileID: 1649236337890595323, guid: 717eccb2c9ee7d342a41a1d6902045bb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.878
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 1649236337890595323, guid: 717eccb2c9ee7d342a41a1d6902045bb,
         type: 3}
@@ -1454,7 +1454,7 @@ PrefabInstance:
     - target: {fileID: 1649236337890595323, guid: 717eccb2c9ee7d342a41a1d6902045bb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.331
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1649236337890595323, guid: 717eccb2c9ee7d342a41a1d6902045bb,
         type: 3}
@@ -3227,7 +3227,7 @@ PrefabInstance:
     - target: {fileID: 1649236337890595323, guid: 717eccb2c9ee7d342a41a1d6902045bb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.792
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 1649236337890595323, guid: 717eccb2c9ee7d342a41a1d6902045bb,
         type: 3}
@@ -3237,7 +3237,7 @@ PrefabInstance:
     - target: {fileID: 1649236337890595323, guid: 717eccb2c9ee7d342a41a1d6902045bb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.628
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1649236337890595323, guid: 717eccb2c9ee7d342a41a1d6902045bb,
         type: 3}
@@ -5687,6 +5687,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 545782965144406674, guid: 6552b36a4ac9bd1499dba05fed684325,
+        type: 3}
+      propertyPath: dirtyness
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 8453575094405803534, guid: 6552b36a4ac9bd1499dba05fed684325,
         type: 3}
       propertyPath: m_Name

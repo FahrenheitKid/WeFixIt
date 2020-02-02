@@ -270,6 +270,9 @@ public class Item : MonoBehaviour
     public virtual void Drop()
     {
         transform.parent = null;
+        Vector3 pos = transform.position;
+        pos.y = 0.05f;
+        transform.position = pos;
 
         isBeingCarried = false;
         canStartPickUp = false;

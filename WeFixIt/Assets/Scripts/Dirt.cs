@@ -63,7 +63,7 @@ public class Dirt : MonoBehaviour
         if (other.CompareTag("WaterJet"))
         {
             //mas do jeito que tá a sujeira se autodestrói já
-            currentDirtyness -= ParticlePhysicsExtensions.GetSafeCollisionEventSize(other.GetComponent<ParticleSystem>());
+            currentDirtyness --;
             print(currentDirtyness + "col");
             //currentDirtyness -= ParticlePhysicsExtensions.GetSafeTriggerParticlesSize(other.GetComponent<ParticleSystem>(),ParticleSystemTriggerEventType.Enter);
             //print(currentDirtyness + "trigg");
