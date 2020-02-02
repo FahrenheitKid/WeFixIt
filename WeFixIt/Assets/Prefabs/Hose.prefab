@@ -636,7 +636,6 @@ MonoBehaviour:
   retractionDelay: 0.045
   endPoint: {fileID: 1292079480}
   waterJet: {fileID: 462817911539204161}
-  startPos: {fileID: 0}
 --- !u!120 &8547504971687689770
 LineRenderer:
   m_ObjectHideFlags: 0

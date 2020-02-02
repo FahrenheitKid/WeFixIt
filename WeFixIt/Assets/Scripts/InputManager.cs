@@ -32,7 +32,7 @@ public static class InputManager
             KeyCode.DownArrow,
             KeyCode.LeftArrow,
             KeyCode.RightArrow,
-            KeyCode.Keypad0
+            KeyCode.RightControl
 };
 
         playerKeys[2] = new KeyCode[]

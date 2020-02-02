@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement; 
+
 public class Game : MonoBehaviour
 {
 
@@ -57,6 +59,9 @@ public class Game : MonoBehaviour
     bool stopTime = false;
 
 
+    [SerializeField]
+    List<Player> players = new List<Player>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +79,14 @@ public class Game : MonoBehaviour
         {
             trashes.Add(go.GetComponent<Trash>());
 
+        }
+
+        for(int i = 0; i < PlayerPrefs.GetInt("PlayerQtd"); i++)
+        {
+            if(i < players.Count)
+            {
+                players[i].gameObject.SetActive(true);
+            }
         }
 
         
@@ -292,5 +305,15 @@ public class Game : MonoBehaviour
         poolText.text = " Pool \n" + val.ToString() + "%";
 
         checkWin();
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Quit()
+    {
+        SceneManager.LoadScene(0);
     }
 }
