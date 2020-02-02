@@ -18,6 +18,7 @@ TagManager:
   - HoseBoxArea
   - HoseSphere
   - Dirt
+  - WaterJet
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Ground
   - Hose
   - Dirt
-  - 
+  - Pool
   - 
   - 
   - 

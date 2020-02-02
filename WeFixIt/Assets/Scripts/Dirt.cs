@@ -45,13 +45,13 @@ public class Dirt : MonoBehaviour
 
     private void OnParticleTrigger()
     {
-        currentDirtyness -= hose_ref.getWaterJet().GetSafeTriggerParticlesSize(ParticleSystemTriggerEventType.Enter);
-        print(currentDirtyness);
-        if (currentDirtyness <= 0)
-        {
-            this.game_ref.Score(scoreValue);
-            Destroy(this.gameObject);
-        }
+        //currentDirtyness -= hose_ref.getWaterJet().GetSafeTriggerParticlesSize(ParticleSystemTriggerEventType.Enter);
+        //print(currentDirtyness);
+        //if (currentDirtyness <= 0)
+        //{
+        //    this.game_ref.Score(scoreValue);
+        //    Destroy(this.gameObject);
+        //}
     }
 
     private void OnParticleCollision(GameObject other)
@@ -60,16 +60,19 @@ public class Dirt : MonoBehaviour
         //talvez com layers de?
         //deve ter uma maneira de usar trigger but SONO
 
-        //mas do jeito que tá a sujeira se autodestrói já
-        currentDirtyness -= ParticlePhysicsExtensions.GetSafeCollisionEventSize(other.GetComponent<ParticleSystem>());
-        print(currentDirtyness + "col");
-        //currentDirtyness -= ParticlePhysicsExtensions.GetSafeTriggerParticlesSize(other.GetComponent<ParticleSystem>(),ParticleSystemTriggerEventType.Enter);
-        //print(currentDirtyness + "trigg");
-
-        if (currentDirtyness <= 0)
+        if (other.CompareTag("WaterJet"))
         {
-            this.game_ref.Score(scoreValue);
-            Destroy(this.gameObject);
+            //mas do jeito que tá a sujeira se autodestrói já
+            currentDirtyness -= ParticlePhysicsExtensions.GetSafeCollisionEventSize(other.GetComponent<ParticleSystem>());
+            print(currentDirtyness + "col");
+            //currentDirtyness -= ParticlePhysicsExtensions.GetSafeTriggerParticlesSize(other.GetComponent<ParticleSystem>(),ParticleSystemTriggerEventType.Enter);
+            //print(currentDirtyness + "trigg");
+
+            if (currentDirtyness <= 0)
+            {
+                this.game_ref.Score(scoreValue);
+                Destroy(this.gameObject);
+            }
         }
 
         /*
