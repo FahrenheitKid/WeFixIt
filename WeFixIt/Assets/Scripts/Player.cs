@@ -270,10 +270,10 @@ public class Player : MonoBehaviour
             canTrashFall = true;
         }
 
-        if (other.gameObject.CompareTag("Dirt"))
-        {
-            triggerStumble();
-        }
+        //if (other.gameObject.CompareTag("Dirt"))
+        //{
+        //    triggerStumble();
+        //}
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Hose") && !stumbling && !canHoseFall)
         {
@@ -294,7 +294,7 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Hose") && !stumbling && canHoseFall)
+        if (((other.gameObject.layer == LayerMask.NameToLayer("Hose") || other.gameObject.CompareTag("Dirt")) && !stumbling && canHoseFall))
         {
             if(item && item != null)
             {
