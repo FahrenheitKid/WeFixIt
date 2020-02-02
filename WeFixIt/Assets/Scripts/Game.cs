@@ -18,6 +18,8 @@ public class Game : MonoBehaviour
     [SerializeField]
     GameObject dish_prefab;
 
+    private Animator dumpAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
