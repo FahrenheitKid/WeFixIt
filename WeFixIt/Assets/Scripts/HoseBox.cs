@@ -11,6 +11,8 @@ public class HoseBox : Item
     [SerializeField]
     Hose hose_ref;
 
+    [SerializeField]
+    Transform hosePoint;
 
 
     private void Awake()
@@ -69,5 +71,10 @@ public class HoseBox : Item
     public Hose getHoseRef()
     {
         return hose_ref;
+    }
+
+    public Transform getHosePoint()
+    {
+        return hosePoint;
     }
 }

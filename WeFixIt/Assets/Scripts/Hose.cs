@@ -20,6 +20,7 @@ public class Hose : Item
     [SerializeField]
     ParticleSystem waterJet;
 
+
     private void Awake()
     {
         retracting = false;
@@ -99,6 +100,8 @@ public class Hose : Item
         anchorPoint = transform.position;
         linePoints.Add(hoseBox.transform.position);
         retracting = false;
+        transform.position = hoseBox.getHosePoint().position;
+        transform.forward = hoseBox.getHosePoint().forward;
     }
 
     public override void Drop()
