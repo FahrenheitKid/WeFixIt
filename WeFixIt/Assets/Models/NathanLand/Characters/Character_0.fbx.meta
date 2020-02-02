@@ -18,6 +18,9 @@ ModelImporter:
   - first:
       74: -5913978943142729594
     second: Armature|Move
+  - first:
+      74: -4353067212287027777
+    second: Armature|HoldIdle
   externalObjects: {}
   materials:
     materialImportMode: 1
