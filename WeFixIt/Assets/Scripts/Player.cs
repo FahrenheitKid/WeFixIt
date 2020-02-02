@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Properties")]
-    private int id;
+    public int id;
 
     [Header("Movement")]
     public float maxSpeed;
@@ -43,7 +43,6 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        id = 0;
         InputManager.Initialize();
         speed = Vector3.zero;
         body = GetComponent<CharacterController>();

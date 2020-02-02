@@ -23,34 +23,34 @@ public static class InputManager
             KeyCode.S,
             KeyCode.A,
             KeyCode.D,
-            KeyCode.Space
+            KeyCode.LeftShift
         };
 
         playerKeys[1] = new KeyCode[]
 {
-            KeyCode.W,
-            KeyCode.S,
-            KeyCode.A,
-            KeyCode.D,
-            KeyCode.Space
+            KeyCode.UpArrow,
+            KeyCode.DownArrow,
+            KeyCode.LeftArrow,
+            KeyCode.RightArrow,
+            KeyCode.Keypad0
 };
 
         playerKeys[2] = new KeyCode[]
 {
-            KeyCode.W,
-            KeyCode.S,
-            KeyCode.A,
-            KeyCode.D,
+            KeyCode.I,
+            KeyCode.K,
+            KeyCode.J,
+            KeyCode.L,
             KeyCode.Space
 };
 
         playerKeys[3] = new KeyCode[]
 {
-            KeyCode.W,
-            KeyCode.S,
-            KeyCode.A,
-            KeyCode.D,
-            KeyCode.Space
+            KeyCode.Keypad8,
+            KeyCode.Keypad5,
+            KeyCode.Keypad4,
+            KeyCode.Keypad6,
+            KeyCode.KeypadEnter
 };
     }
 
